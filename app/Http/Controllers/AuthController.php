@@ -18,10 +18,7 @@ class AuthController extends Controller
    public function login(LoginUserRequest $request){
 
         $request->validated($request->all());
-        // if(!Auth::attempt([$request->only('email', 'password')])){
-        //     return $this->error('', 'Credendtials do not match', 401);
         
-       // }
 
        if (!Auth::attempt($request->only('email', 'password'))) {
         return $this->error('', 'Credentials do not match', 401);
@@ -51,8 +48,16 @@ class AuthController extends Controller
         ]);
      }
 
-     public function logout(){
-        return response()->json('This is my logout endpoint');
+
+     public function logout(Request $request){
+
+        $request->user()->currentAccessToken()->delete();
+
+        Auth::guard("web")->logout();
+
+        return $this->success([
+            'message' => 'You have been logged out.'
+        ]);
      }
 }
 
