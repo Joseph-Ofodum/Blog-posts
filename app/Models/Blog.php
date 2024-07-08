@@ -13,6 +13,10 @@ class Blog extends Model
         'user_id', 'topic', 'body', 'pinPost'
     ];
 
+    protected $casts = [
+        'pinPost' => 'boolean',
+    ];
+
     public function user(){
         return $this->belongsTo(User::class);
     }
