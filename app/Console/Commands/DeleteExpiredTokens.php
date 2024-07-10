@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-
+ 
 
 //Method to create a delete expired tokens command from the database
 class DeleteExpiredTokens extends Command

@@ -41,6 +41,7 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password'=> Hash::make($request->password),
+            'phone_number'=> $request->phone_number,
         ]);
         return $this->success([
             'user' => $user,
