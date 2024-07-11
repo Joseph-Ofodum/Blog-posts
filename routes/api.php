@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
+Route::resource('permissions', App\Http\Controllers\PermissionController::class);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request){
